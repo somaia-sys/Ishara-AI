@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="ar">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>التعرف على لغة الإشارة</title>
+    <link rel="stylesheet" href="style.css">
+    <script defer src="https://cdn.jsdelivr.net/npm/@mediapipe/hands"></script>
+    <script defer src="https://cdn.jsdelivr.net/npm/@tensorflow/tfjs-core"></script>
+    <script defer src="https://cdn.jsdelivr.net/npm/@tensorflow/tfjs-converter"></script>
+    <script defer src="https://cdn.jsdelivr.net/npm/@tensorflow/tfjs-backend-webgl"></script>
+    <script defer src="https://cdn.jsdelivr.net/npm/@tensorflow-models/handpose"></script>
+    <script defer src="script.js"></script>
+    <style>
+        body {
+            font-family: 'Tajawal', sans-serif;
+            text-align: center;
+            background-color: #f8f9fa;
+            margin: 0;
+            padding: 0;
+        }
+        header {
+            background-color: #007bff;
+            color: white;
+            padding: 20px;
+            font-size: 24px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        }
+        main {
+            margin-top: 20px;
+        }
+        video, canvas {
+            display: block;
+            margin: 20px auto;
+            width: 80%;
+            max-width: 600px;
+            border: 3px solid #007bff;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+        }
+        #output {
+            margin-top: 20px;
+            font-size: 22px;
+            font-weight: bold;
+            color: #333;
+        }
+        .nav-links {
+            margin-top: 20px;
+        }
+        .nav-links a {
+            text-decoration: none;
+            color: white;
+            background-color: #007bff;
+            padding: 10px 15px;
+            border-radius: 5px;
+            margin: 5px;
+            display: inline-block;
+        }
+        .nav-links a:hover {
+            background-color: #0056b3;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>التعرف على لغة الإشارة</h1>
+    </header>
+    
+    <main>
+        <button id="startCamera">تشغيل الكاميرا</button>
+        <video id="video" autoplay></video>
+        <canvas id="canvas"></canvas>
+        <p id="output">التعرف على الإشارة...</p>
+    </main>
+    
+    <div class="nav-links">
+        <a href="index.html">العودة إلى الصفحة الرئيسية</a>
+    </div>
+    
+    <script>
+        document.getElementById("startCamera").addEventListener("click", function() {
+            navigator.mediaDevices.getUserMedia({ video: true }).then(function(stream) {
+                document.getElementById("video").srcObject = stream;
+            }).catch(function(error) {
+                console.error("خطأ في تشغيل الكاميرا", error);
+            });
+        });
+    </script>
+</body>
+</html>
