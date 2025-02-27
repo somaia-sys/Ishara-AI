@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="ar">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>إشارة ذكية - الصفحة الرئيسية</title>
+    <link rel="stylesheet" href="style.css">
+    <script defer src="https://cdn.jsdelivr.net/npm/@mediapipe/hands"></script>
+    <script defer src="https://cdn.jsdelivr.net/npm/@tensorflow/tfjs-core"></script>
+    <script defer src="https://cdn.jsdelivr.net/npm/@tensorflow/tfjs-converter"></script>
+    <script defer src="https://cdn.jsdelivr.net/npm/@tensorflow/tfjs-backend-webgl"></script>
+    <script defer src="https://cdn.jsdelivr.net/npm/@tensorflow-models/handpose"></script>
+    <script defer src="script.js"></script>
+    <style>
+        body {
+            font-family: 'Tajawal', sans-serif;
+            text-align: center;
+            background-color: #f8f9fa;
+            margin: 0;
+            padding: 0;
+            transition: background-color 0.3s, color 0.3s;
+        }
+        header {
+            background-color: #007bff;
+            color: white;
+            padding: 20px;
+            font-size: 24px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        }
+        main {
+            margin-top: 20px;
+        }
+        .nav-links {
+            margin-top: 20px;
+        }
+        .nav-links a {
+            text-decoration: none;
+            color: white;
+            background-color: #007bff;
+            padding: 10px 15px;
+            border-radius: 5px;
+            margin: 5px;
+            display: inline-block;
+        }
+        .nav-links a:hover {
+            background-color: #0056b3;
+        }
+        .dark-mode {
+            background-color: #121212;
+            color: #f8f9fa;
+        }
+        .dark-mode header {
+            background-color: #333;
+        }
+        .dark-mode .nav-links a {
+            background-color: #ffcc00;
+            color: #333;
+        }
+        .dark-mode .nav-links a:hover {
+            background-color: #e6b800;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>إشارة ذكية</h1>
+        <p>تحليل لغة الإشارة باستخدام الذكاء الاصطناعي</p>
+    </header>
+    
+    <main>
+        <button onclick="window.location.href='sign_detection.html'">الانتقال إلى صفحة التعرف على الإشارة</button>
+        <button onclick="window.location.href='education.html'">الانتقال إلى الصفحة التعليمية</button>
+        <button id="toggleMode">تبديل الوضع الليلي</button>
+    </main>
+    
+   
+    <script>
+        // تفعيل الوضع الليلي
+        document.getElementById("toggleMode").addEventListener("click", function () {
+            document.body.classList.toggle("dark-mode");
+        });
+    </script>
+</body>
+</html>
